@@ -1,11 +1,13 @@
 package diego.tutoriales.petclinic.services.map;
 
 import diego.tutoriales.petclinic.model.Owner;
-import diego.tutoriales.petclinic.services.CrudService;
+import diego.tutoriales.petclinic.services.OwnerService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
-public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements CrudService<Owner, Long> {
+@Service
+public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements OwnerService {
 
 
     @Override
@@ -31,5 +33,10 @@ public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements 
     @Override
     public Owner findById(Long id) {
         return super.findById(id);
+    }
+
+    @Override
+    public Owner findByLastName(String name) {
+        return null;
     }
 }
