@@ -17,12 +17,12 @@ public class DataLoader implements CommandLineRunner {
     private final VetService vetService;
 
     public DataLoader(OwnerService ownerService, VetService vetService) {
-        this.ownerService = new OwnerServiceMap();
-        this.vetService = new VetServiceMap();
+        this.ownerService = ownerService;
+        this.vetService = vetService;
     }
 
     @Override
-    public void run(String... args) throws Exception {
+    public void run(String... args)  {
         Owner owner1 = new Owner() ;
         owner1.setId(1L);
         owner1.setFirstName("Michael");
