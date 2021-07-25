@@ -1,13 +1,17 @@
 package diego.tutoriales.petclinic.model;
 
+import lombok.Builder;
+
+import java.util.HashSet;
 import java.util.Set;
 
+@Builder
 public class Owner extends Person {
 
     private String address;
     private String city;
     private String telephone;
-    private Set<Pet> pets;
+    private final Set<Pet> pets = new HashSet<>();
 
 
     public String getAddress() {
@@ -38,7 +42,7 @@ public class Owner extends Person {
         return pets;
     }
 
-    public void setPets(Set<Pet> pets) {
-        this.pets = pets;
-    }
+//    public void setPets(Set<Pet> pets) {
+//        this.pets = pets;
+//    }
 }
