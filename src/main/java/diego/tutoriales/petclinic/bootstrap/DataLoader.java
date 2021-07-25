@@ -39,7 +39,10 @@ public class DataLoader implements CommandLineRunner {
 
         System.out.println("Loaded PetTypes...");
 
-        Owner owner1 = Owner.builder().address("La Florida").city("Santiago").telephone("+56928874351").build() ;
+        Owner owner1 = Owner.builder().address("La Florida")
+                .city("Santiago")
+                .telephone("+56928874351")
+                .build() ;
         owner1.setFirstName("Michael");
         owner1.setLastName("Perez");
 
@@ -52,7 +55,10 @@ public class DataLoader implements CommandLineRunner {
         owner1.getPets().add(michaelsPet);
         ownerService.save(owner1);
 
-        Owner owner2 = Owner.builder().address("Ñuñoa").city("Rancagua").telephone("+5698844411").build();
+        Owner owner2 = Owner.builder().address("Ñuñoa")
+                .city("Rancagua")
+                .telephone("+5698844411")
+                .build();
         owner2.setFirstName("Fiona");
         owner2.setLastName("Glenanne");
 
