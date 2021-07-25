@@ -1,11 +1,13 @@
 package diego.tutoriales.petclinic.services.map;
 
 import diego.tutoriales.petclinic.model.Specialty;
-import diego.tutoriales.petclinic.services.SpecialtiesService;
+import diego.tutoriales.petclinic.services.SpecialtyService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
-public class SpecialtyServiceMap extends AbstractMapService<Specialty, Long> implements SpecialtiesService {
+@Service
+public class SpecialtyServiceMap extends AbstractMapService<Specialty, Long> implements SpecialtyService {
     @Override
     public Set<Specialty> findAll() {
         return super.findAll();
