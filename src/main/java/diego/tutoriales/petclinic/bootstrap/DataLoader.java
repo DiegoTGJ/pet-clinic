@@ -1,7 +1,9 @@
 package diego.tutoriales.petclinic.bootstrap;
 
+import diego.tutoriales.petclinic.model.PetType;
 import diego.tutoriales.petclinic.model.Vet;
 import diego.tutoriales.petclinic.services.OwnerService;
+import diego.tutoriales.petclinic.services.PetTypeService;
 import diego.tutoriales.petclinic.services.VetService;
 import diego.tutoriales.petclinic.model.Owner;
 import org.springframework.boot.CommandLineRunner;
@@ -13,14 +15,27 @@ public class DataLoader implements CommandLineRunner {
 
     private final OwnerService ownerService;
     private final VetService vetService;
+    private final PetTypeService petTypeService;
 
-    public DataLoader(OwnerService ownerService, VetService vetService) {
+    public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService) {
         this.ownerService = ownerService;
         this.vetService = vetService;
+        this.petTypeService = petTypeService;
     }
 
     @Override
     public void run(String... args)  {
+
+        PetType dog = new PetType();
+        dog.setName("Dog");
+        PetType savedDogPetType = petTypeService.save(dog);
+
+        PetType cat = new PetType();
+        cat.setName("cat");
+        PetType savedCatPetType = petTypeService.save(cat);
+
+        System.out.println("Loaded PetTypes...");
+
         Owner owner1 = new Owner() ;
         owner1.setFirstName("Michael");
         owner1.setLastName("Perez");
