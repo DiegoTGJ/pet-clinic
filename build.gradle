@@ -1,9 +1,19 @@
+buildscript {
+	dependencies {
+		classpath 'ro.isdc.wro4j.gradle:wro4j-gradle-plugin:1.8.0.Beta4'
+	}
+}
+
 plugins {
 	id 'org.springframework.boot' version '2.5.2'
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 	id 'java'
 	id 'net.researchgate.release' version '2.8.1'
+
 }
+apply plugin: 'java'
+apply plugin: 'wro4j'
+
 
 group = 'diego.tutoriales'
 version = '0.0.1-SNAPSHOT'
@@ -15,28 +25,12 @@ configurations {
 	}
 }
 
-repositories {
-	mavenCentral()
-}
+apply from: 'gradle/wro4j-config.gradle'
+apply from: 'gradle/repositories.gradle'
+apply from: 'gradle/dependencies.gradle'
+apply from: 'gradle/test.gradle'
 
-dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-actuator'
-	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
-	implementation 'org.springframework.boot:spring-boot-starter-web'
-	compileOnly 'org.projectlombok:lombok'
-	developmentOnly 'org.springframework.boot:spring-boot-devtools'
-	runtimeOnly 'com.h2database:h2'
-	runtimeOnly 'mysql:mysql-connector-java'
-	annotationProcessor 'org.projectlombok:lombok'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-}
-
-test {
-	useJUnitPlatform()
-}
 release {
-
   git {
   requireBranch = "dev"
 	}
